@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from .database import get_db, init_db, engine, SessionLocal
-from .models import Channel, Listener, Base
+from backend.database import get_db, init_db, engine, SessionLocal
+from backend.models import Channel, Listener, Base
 import os
 
 
