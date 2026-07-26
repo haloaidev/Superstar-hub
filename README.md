@@ -1,22 +1,32 @@
 # Superstar Broadcast Hub
 
-This commit adds a Flask backend (backend/run.py), a Dockerfile (backend/Dockerfile), requirements and an updated UI (templates/index.html) wired to a small API.
+This repository contains a lightweight scaffold of the Superstar Broadcast Hub UI (static) and a Flask backend API.
 
-How it works:
-- The Flask app serves the UI and exposes simple REST endpoints under /api
-  - GET /api/channels
-  - POST /api/channel/<key>/connect
-  - POST /api/channel/<key>/test
-  - GET/POST /api/chat
-  - POST /api/platform/connect
+What's included:
+- Frontend: Next.js app that serves a static Broadcast UI at /broadcast-ui.html (public).
+- Backend: Flask app (backend/) exposing small demo API endpoints (/api/channels, /api/chat, /api/stats, /api/connect).
+- Dockerfiles for both frontend and backend and a render.yaml to deploy both services on Render using Docker.
 
-Run locally:
+Quick start (local):
 
-1) python -m venv .venv
-2) source .venv/bin/activate
-3) pip install -r backend/requirements.txt
-4) python backend/run.py
+1) Frontend
+   - cd to repo root
+   - npm install
+   - npm run dev
 
-Docker / Render:
-- The backend/Dockerfile builds an image that runs gunicorn on port 8080.
-- You can point Render to that Dockerfile and deploy the service.
+2) Backend
+   - cd backend
+   - python -m venv .venv
+   - source .venv/bin/activate
+   - pip install -r requirements.txt
+   - python run.py
+
+Environment & deployment
+- The backend reads DATABASE_URL (Postgres or SQLite) — default is sqlite:///./superstar.db
+- Use render.yaml to create two services in Render (frontend + backend). The frontend Dockerfile will build the Next.js app; backend Dockerfile will run Flask.
+
+Next steps
+- Convert the static UI into React components (the public/broadcast-ui.html is a starting point).
+- Implement real-time chat (WebSocket: Socket.IO or WebSocket) and real streaming integrations (RTMP proxy/transcoder).
+- Add authentication, migrations, and tests.
+

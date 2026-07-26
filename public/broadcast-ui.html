@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superstar Broadcast Hub - Professional Streaming Platform</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --success-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            --warning-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow-primary: 0 8px 32px rgba(102, 126, 234, 0.15);
+            --shadow-secondary: 0 8px 32px rgba(240, 147, 251, 0.12);
+            --shadow-dark: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        * { box-sizing: border-box; }
+        body { margin:0; font-family: 'Segoe UI', Roboto, sans-serif; background: var(--dark-gradient); color: #fff; }
+        .container { max-width: 1400px; margin: 24px auto; padding: 20px; }
+        .header { text-align:center; padding:24px; background:var(--glass-bg); border-radius:16px; }
+        .logo { font-weight:900; font-size:28px; }
+
+        /* keep remaining styles same as original but slightly reduced for file size */
+        .main-content { margin-top: 18px; }
+
+        /* simplified responsive */
+        @media (max-width: 768px) { .container { padding:12px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🌟 SUPERSTAR BROADCAST HUB</div>
+            <div class="subtitle">Professional Multi-Platform Streaming System</div>
+        </div>
+
+        <div class="main-content">
+            <!-- This is the original UI converted to a compact static page. For production, logic should call backend APIs at /api/* -->
+
+            <div style="margin-top:18px; background:rgba(255,255,255,0.03); padding:18px; border-radius:12px;">
+                <h2>Demo Broadcast UI</h2>
+                <p>This static page is the main UI scaffold. Use the frontend app to interact with the backend API at <code>/api/</code>.</p>
+
+                <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                    <button onclick="fetch('/api/channels').then(r=>r.json()).then(d=>alert(JSON.stringify(d)))">Fetch channels (API)</button>
+                    <button onclick="fetch('/api/stats').then(r=>r.json()).then(d=>alert(JSON.stringify(d)))">Fetch stats (API)</button>
+                </div>
+
+                <p style="margin-top:12px;color:#ccc">Note: In development you will run the backend on <code>http://localhost:8000</code> or deploy both services and set proper environment variables (DATABASE_URL, API_URL).</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Render.yaml describing two services (frontend and backend)
+# Adjust names and regions as needed when creating services in Render.
+services:
+  - type: web
+    name: superstar-hub-frontend
+    env: docker
+    dockerfilePath: ./Dockerfile
+    branch: main
+    plan: free
+  - type: web
+    name: superstar-hub-backend
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    branch: main
+    plan: free
